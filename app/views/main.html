@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta charset="utf-8">
+
+    </head>
+     
+    <body>
+            #{form @Application.signIn()}
+            <form>
+                Online ID <input type="text" name ="onlineID" value="${onlineID}"><br>
+                Passcode  <input type="text" name ="passcode" value="${passcode}">
+                <input type ="submit" value="Sign in">
+            </form>
+           #{/form}
+           
+           #{if flash.error}
+                <p style="color:#c00">
+                ${flash.error}
+                </p>
+           #{/if}
+        
+    </body>
+</html>
