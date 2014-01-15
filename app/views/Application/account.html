@@ -1,0 +1,35 @@
+
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        
+        
+        <img border="0" src="@{'/public/images/prototype.png'}" alt="prototype" width="590" height="350" />
+        
+        <table border=1>
+        <tr>
+        <td>Account NO</td>
+        <td>Account Type</td>
+        <td>Account Balance</td>
+        </tr>
+       
+        
+       #{list items:accounts, as:'account_type' }
+        <tr>
+        <td>${account_type.getAccountNO()}</td>
+        <td>${account_type.getAccountType()}</td>
+        <td>${account_type.getAccountBalance()}</td>
+        </tr>
+        #{/list}
+      
+        </table>
+        </body>
+</html>
