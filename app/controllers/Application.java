@@ -53,10 +53,7 @@ public static void signIn(String onlineID, String passcode) {
              
         }
 
-public static void showAccount(){
-        List accounts = AccountRepo.getAccountTypes();
-        render(accounts);
-}
+
    
    
 }

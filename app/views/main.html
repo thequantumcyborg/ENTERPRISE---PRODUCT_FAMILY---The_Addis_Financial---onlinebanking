@@ -1,26 +1,128 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
-<html>
-    <head>
-        <title>#{get 'title' /}</title>
-        <meta charset="utf-8">
+    <title>BoK Online Banking</title>
 
-    </head>
-     
-    <body>
-            #{form @Application.signIn()}
-            <form>
-                Online ID <input type="text" name ="onlineID" value="${onlineID}"><br>
-                Passcode  <input type="text" name ="passcode" value="${passcode}">
-                <input type ="submit" value="Sign in">
-            </form>
-           #{/form}
-           
-           #{if flash.error}
-                <p style="color:#c00">
-                ${flash.error}
-                </p>
-           #{/if}
+    <!-- Bootstrap core CSS -->
+    <link href="@{'/public/stylesheets/bootstrap.css'}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="@{'/public/stylesheets/jumbotron.css'}" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <a class="navbar-brand" href="#">Bank of Kirubel <span class="glyphicon glyphicon-globe"></span> Online Banking</a>
+       
+        </div>
         
-    </body>
+          <div class="navbar-collapse collapse">
+            
+              <form action="/signin" method="GET" class="navbar-form navbar-right" role="form">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control" name ="onlineID" value="${onlineID}">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control" name ="passcode" value="${passcode}" >
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>                       
+        </div><!--/.navbar-collapse -->
+        
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h3>Core Banking Solution</h3>
+        <p>Core Baning Solution (CBS) empowers banks to transform their business, leveraging agile new generation technologies. This modular solution addresses the core banking, consumer and corporate e-banking, mobile banking and web based cash management requirements. Products offer powerful and differentiating features making them most comprehensive, flexible and scalable solutions.
+ Core banking solution is a set of robust software components designed to meet the challenges of today’s banking market. The advanced technology infrastructure supporting the core banking solution and high standard of business functionality provides financial institutions a competitive advantage. 
+        <h6>Sriram, M.Revathy; Ramanan, P.K.; Chandrasekhar, R. (2012-01-19). Core Banking Solution: Evaluation of Security and Controls (Kindle Locations 679-682). PHI Learning Private Limited. Kindle Edition.</h6>
+        </p>
+        <p><a class="btn btn-primary btn-lg" href="http://www.inntron.com/core_banking.html" role="button">Learn more &raquo;</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Cloud</h2>
+          <p>Gartner released its IT predictions for vertical industries yesterday, which included forecasts on the growth of cloud in banking and changes in consumer behavior.According to Gartner, the public cloud services market is forecast to grow 18.5% in 2013 to total $131 billion worldwide, up from $111 billion in 2012. Meanwhile, IDC estimates that by 2020, nearly 40% of the information in the digital universe will be in the cloud in some capacity. </p>
+          <p><a class="btn btn-default" href="http://www.banktech.com/management-strategies/gartner-majority-of-banks-will-turn-to-c/240162698" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Trading</h2>
+          <p>High-frequency strategies identify and trade away temporary market inefficiencies and impound information into prices more quickly. Many high-frequency strategies provide significant liquidity to the markets, making the markets work more smoothly and with fewer frictional costs for all
+investors. High-frequency traders encourage innovation in computer technology and facilitate new solutions to relieve Internet communication bottlenecks. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Mobile</h2>
+          <p>Text Banking Quickly receive account information by text message. Access your accounts and make transactions from your phone’s browser,Our smartphone and tablet apps give you fast access to your accounts, using your device’s built-in functions. You can pay bills, deposit checks and make use of a variety of other features. The use of Mobile Banking functionality would enable customer connect across entire customer life cycle much comprehensively than before. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Connectivity</h2>
+          <p>All the branches are connected to the data center through a leased line or any other network connectivity with security and redundancy built in. With online transactions being enabled and the servers being active all the 24 hours and seven days a week, it is possible to perform banking transactions on the net any time, any day, anywhere.
+  </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+ 
+        <div class="col-md-4">
+          <h2> Analytics</h2>
+          <p> Real-time financial dashboards, reporting and analytics that allow you to continually monitor personalized key performance indicators (KPIs) and get access to the latest management and financial reports. Diagnose financial issues on the fly with drill-down visibility to customer, employee or transactional details—and quickly take action to drive business performance.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        
+        <div class="col-md-4">
+          <h2>ATM</h2>
+          <p>The days of ATMs dispensing too many or too few bills are long gone. The dispensers used in our ATMs are state-of-the-art and dispense the right amount of bills. If, in rare cases, a customer has a complaint, it will be handled professionally by our customer service department, who can look at your ATM electronically to resolve any issues.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>  
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Kirubel Seifu's Core Banking Solution 2014</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="@{'/public/javascripts/bootstrap.min.js'}"></script>
+  </body>
 </html>
