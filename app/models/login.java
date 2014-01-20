@@ -93,9 +93,8 @@ public class login {
                     
                     String sql;
                     
-                    //a postgres database query
-                    //sql="SELECT Cust_ID,password from corebanking.customer";
-                     sql="SELECT userID,password from heroku_98dc3582d5c864d.employee";
+                    
+                     sql="SELECT userID,password from heroku_98dc3582d5c864d.customer";
                      stmt.executeQuery(sql);
                      rs = stmt.getResultSet();
                      

@@ -4,6 +4,7 @@
 
 package controllers;
 
+
 import play.*;
 import play.mvc.*;
 import java.util.*;
@@ -43,17 +44,12 @@ public static void signIn(String onlineID, String passcode) {
             
             //This boolean check allows/disallows routing to next page 
             if(verify){
-                 List accounts = AccountRepo.getAccountTypes();
-               render("@Application.account",accounts);
-               
-               }else{
-               flash.error("Invalid onlineID/passcode. Try Again!");
-                index();
-             }
-             
-        }
-
-
+              List accounts = AccountRepo.getAccountTypes();
+                
+             render("@Application.account",accounts);
+            }
+       
+         }
    
    
 }

@@ -17,9 +17,10 @@ import java.util.ArrayList;
  */
 public class AccountRepo {
     public static ArrayList getAccountTypes(){
-               ArrayList accounts = new ArrayList();
+    
+              ArrayList accounts = new ArrayList();
               
-                Connection conn=null;
+                 Connection conn=null;
                 Statement stmt=null;
                 ResultSet rs=null;
                 try{
@@ -36,15 +37,25 @@ public class AccountRepo {
                     sql="SELECT * from heroku_98dc3582d5c864d.account_type";
                      stmt.executeQuery(sql);
                      rs = stmt.getResultSet();
-                     
+            
+                 
+                 
                     //read each resultset 
                     while(rs.next()){
-                         accounts.add(new Account_Type(rs.getInt("accID"),
-                                                rs.getString("accName"),
-                                                rs.getString("accBalance")));
+                         
+                        int id=rs.getInt("accID");
+                        String type=rs.getString("accName");
+                        String bal=rs.getString("accBalance");
                         
-                    }
-
+                        String loginID=Integer.toString(id);
+                        String subID=loginID.substring(5,9);
+                        int encryptID=Integer.parseInt(subID);
+                      
+                      accounts.add(new Account_Type(encryptID,type, bal));  
+                      }
+               
+                   
+                    
                     rs.close();
                     stmt.close();
                     conn.close();
@@ -66,7 +77,9 @@ public class AccountRepo {
               }catch(SQLException se){
                  se.printStackTrace();
               }//end finally try
-           }//end try
+           }//end try 
+              
+             
       return accounts; 
       }
 }

@@ -1,35 +1,260 @@
-
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+    <title>Welcome, BoK Online Banking</title>
+
+    <!-- Bootstrap core CSS -->
+     <link href="@{'/public/stylesheets/bootstrap.css'}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+     <link href="@{'/public/stylesheets/starter-template.css'}" rel="stylesheet">
+    
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+ 
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Bank of Kirubel <span class="glyphicon glyphicon-globe"></span> Online Banking</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#accounts">Accounts</a></li>
+            <li><a href="#epayments">ePayment</a></li>
+			<li><a href="#transfer">Transfer</a></li>
+			<li><a href="#transfer">Support</a></li>
+          </ul>
+		  <form class="navbar-form navbar-right" role="form"> 
+		 <button type="submit" class="btn btn-success">Sign out</button> 
+		   </form>
+        </div><!--/.nav-collapse -->
+		
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="starter-template">
+	    
+          
+        </br></br>
+		
+		<div class="row">
+		
+		<div class="col-md-4"> 
+			<table class="table">
+				<tbody>  
+				  <tr>  
+					<td bgcolor="#FF105C"> <font color="#F4F4F4">Account</font></td> 
+				  </tr>  
+				</tbody>  
+			</table>
+			
+	       </div>
+		<div class="col-md-4" > 
+			<table class="table">
+				<tbody>  
+				  <tr>  
+					<td bgcolor="#FF105C"> <font color="#F4F4F4">Balance</font></td> 
+				  </tr>  
+				</tbody>  
+			</table>
+		
+		</div>
+		<div class="col-md-4"> 
+			<table class="table">
+					<tbody>  
+					  <tr>  
+						<td bgcolor="#FF105C"> <font color="#F4F4F4">Latest</font></td> 
+					  </tr>  
+					</tbody>  
+			</table>
+		
+		
+		</div>
+		
+		</div>
+		
+		</br>
+                
+		<div class="row">
+             
+		<div class="col-md-4"><button type="button" class="btn btn-info btn-lg btn-block">${accounts.get(0).getAccountType()}****${accounts.get(0).getAccountNO()}</button> </div>
+                
+		<div class="col-md-4"> 
+                 
+			<table class="table">
+			<tbody>  
+			  <tr>  
+				<td bgcolor="#FF513B"> <font color="#F4F4F4">${accounts.get(0).getAccountBalance()}</font></td> 
+			  </tr>  
+			</tbody>  
+			</table>
+            
+		</div>
+		
+		<div class="col-md-4"class="highlight">
+			<table class="table">
+			<tbody>  
+			  <tr>  
+				<td bgcolor="#FF513B"> <font color="#F4F4F4">-$3.21</font></td> 
+			  </tr>  
+			</tbody>  
+			</table>
+		</div>
+		
+		</div>
+		
+		</br>
+		</br>
+		
+		<div class="row">
+		
+		<div class="col-md-4"><button type="button" class="btn btn-info btn-lg btn-block">${accounts.get(1).getAccountType()}****${accounts.get(1).getAccountNO()}</button> </div>
+		<div class="col-md-4">
+		<table class="table">
+			<tbody>  
+			  <tr>  
+				<td bgcolor="#FF513B"><font color="#F4F4F4">${accounts.get(1).getAccountBalance()}</font></td> 
+			  </tr>  
+			</tbody>  
+		</table>
+		
+		
+		</div>
+		<div class="col-md-4"class="highlight">
+		<table class="table">
+			<tbody>  
+			  <tr>  
+				<td bgcolor="#FF513B"> <font color="#F4F4F4">-$14.32</font></td> 
+			  </tr>  
+			</tbody>  
+		</table>
+		
+		</div>
+		
+		</div>
+		
+		</br>
+		</br>
+		
+		<div class="row">
+		
+          
+		<div class="col-md-4"><button type="button" class="btn btn-warning btn-lg btn-block">${accounts.get(2).getAccountType()}****${accounts.get(2).getAccountNO()}</button> </div>
+		<div class="col-md-4">
+			<table class="table">
+			<tbody>  
+			  <tr>  
+				<td bgcolor="#FF513B"> <font color="#F4F4F4">${accounts.get(2).getAccountBalance()}</font></td> 
+			  </tr>  
+			</tbody>  
+		</table>
+		</div>
+		
+		<div class="col-md-4"class="highlight">
+			<table class="table">
+			<tbody>  
+			  <tr>  
+				<td bgcolor="#FF513B"> <font color="#F4F4F4">+$1000.00</font></td> 
+			  </tr>  
+			</tbody>  
+		</table>
+		
+		</div>
+		
+		</div>
         
-        
-  
-        
-        <table border=1>
-        <tr>
-        <td>Account NO</td>
-        <td>Account Type</td>
-        <td>Account Balance</td>
-        </tr>
-       
-        
-       #{list items:accounts, as:'account_type' }
-        <tr>
-        <td>${account_type.getAccountNO()}</td>
-        <td>${account_type.getAccountType()}</td>
-        <td>${account_type.getAccountBalance()}</td>
-        </tr>
-        #{/list}
-      
-        </table>
-        </body>
+      </div>
+            
+        <div class="row">
+        <div class="col-md-4">    
+            <div class="list-group" >
+              <a href="#" class="list-group-item active">
+                <h4 class="list-group-item-heading">Security <span class="glyphicon glyphicon-eye-close"></span></h4>
+                <p class="list-group-item-text">Learn more to subscribe about our secured access services</p>
+              </a>
+                <a href="#" class="list-group-item ">
+                <h4 class="list-group-item-heading">Alerts</h4>
+                <p class="list-group-item-text" >Get low-alerts,direct deposits alerts,excessive card withdrawals. Learn more...</p>
+              </a>
+
+                <a href="#" class="list-group-item ">
+                <h4 class="list-group-item-heading">PIN</h4>
+                <p class="list-group-item-text">Needed extra security for your online banking activity view. Learn more...</p>
+              </a>  
+            </div>
+        </div>
+            
+         <div class="col-md-4">    
+                <div class="list-group" >
+                  <a href="#" class="list-group-item active">
+                    <h4 class="list-group-item-heading">Announcements  <span class="glyphicon glyphicon-info-sign"></span> </h4>
+                    <p class="list-group-item-text">Get up-to-date information from BoK,Core Banking headquarters</p>
+                  </a>
+                    <a href="#" class="list-group-item ">
+                    <h4 class="list-group-item-heading">Fees</h4>
+                    <p class="list-group-item-text" >Updated ATM fees on non BoK machine will apply as of Jan.1,2014. Learn more...</p>
+                  </a>
+
+                    <a href="#" class="list-group-item ">
+                    <h4 class="list-group-item-heading">Transfers</h4>
+                    <p class="list-group-item-text">Monthly transfer limitation between your savings/checking set to six. Learn more...</p>
+                  </a>  
+                </div>
+        </div>
+            
+        <div class="col-md-4">    
+                <div class="list-group" >
+                  <a href="#" class="list-group-item active">
+                    <h4 class="list-group-item-heading">Tools <span class="glyphicon glyphicon-wrench"></span></h4>
+                    <p class="list-group-item-text">Manage your money,beyond tracking by analyzing spending,planning a budget,setting savings</p>
+                  </a>
+                    <a href="#" class="list-group-item ">
+                    <h4 class="list-group-item-heading">Basic Plan</h4>
+                    <p class="list-group-item-text" >Free tools provided when you open a saving account. Learn more...</p>
+                  </a>
+
+                    <a href="#" class="list-group-item ">
+                    <h4 class="list-group-item-heading">Premium Plan</h4>
+                    <p class="list-group-item-text">Save,plan, and invest through our Core Banking Trading & Analytics services. Learn more...</p>
+                  </a>  
+                </div>
+        </div>
+            
+            
+        </div>    
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="@{'/public/javascripts/bootstrap.min.js'}"></script>
+  </body>
 </html>

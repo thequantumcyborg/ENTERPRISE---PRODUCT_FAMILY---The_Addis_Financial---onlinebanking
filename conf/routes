@@ -5,7 +5,9 @@
 # Home page
 GET     /                                       Application.index
 
-GET   /signin                                       controllers.Application.signIn()
+* /signin                                        controllers.Application.signIn()
+
+
 GET /                                       controllers.Application.showAccount()
 # Ignore favicon requests
 GET     /favicon.ico                            404
