@@ -242,6 +242,7 @@ table {
   }
   thead {
     display: table-header-group;
+    
   }
   tr,
   img {
@@ -1672,6 +1673,7 @@ th {
 .table > colgroup + thead > tr:first-child > td,
 .table > thead:first-child > tr:first-child > td {
   border-top: 0;
+  text-align: inherit;
 }
 
 .table > tbody + tbody {
@@ -6066,7 +6068,7 @@ button.close {
 
 @media screen and (min-width: 768px) {
   .modal-dialog {
-    width: 600px;
+    width: 800px;
     margin: 30px auto;
   }
   .modal-content {

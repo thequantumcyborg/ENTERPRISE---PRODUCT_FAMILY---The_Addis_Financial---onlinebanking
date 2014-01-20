@@ -45,8 +45,9 @@ public static void signIn(String onlineID, String passcode) {
             //This boolean check allows/disallows routing to next page 
             if(verify){
               List accounts = AccountRepo.getAccountTypes();
+              List activity = AccountRepo.getAccountActivity();
                 
-             render("@Application.account",accounts);
+             render("@Application.account",accounts,activity);
             }
        
          }

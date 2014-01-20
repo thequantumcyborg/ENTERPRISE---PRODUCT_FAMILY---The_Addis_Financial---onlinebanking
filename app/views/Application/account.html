@@ -57,10 +57,29 @@
     </div>
 
     <div class="container">
-
+    
       <div class="starter-template">
-	    
-          
+          <div class="btn-group">
+              <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title data-original-title="Call Us">
+                <span class="glyphicon glyphicon-earphone"></span>
+              </button>
+              <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title data-original-title="Email Us">
+                <span class="glyphicon glyphicon-envelope"></span>
+              </button>  
+              <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title data-original-title="Print Summary">  
+                <span class="glyphicon glyphicon-print"></span>
+              </button>
+              <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title data-original-title="Chat With Agent">
+                <span class="glyphicon glyphicon-user"></span>
+              </button>
+              <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title data-original-title="Download app">
+                <span class="glyphicon glyphicon-cloud-download"></span>
+              </button>
+              <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title data-original-title="Search BoK">
+                <span class="glyphicon glyphicon-search"></span>
+              </button>  
+          </div>     
+           
         </br></br>
 		
 		<div class="row">
@@ -69,7 +88,7 @@
 			<table class="table">
 				<tbody>  
 				  <tr>  
-					<td bgcolor="#FF105C"> <font color="#F4F4F4">Account</font></td> 
+					<td bgcolor="#FF105C"> <font color="#F4F4F4">Account <span class="glyphicon glyphicon-list-alt"></span></font></td> 
 				  </tr>  
 				</tbody>  
 			</table>
@@ -79,7 +98,7 @@
 			<table class="table">
 				<tbody>  
 				  <tr>  
-					<td bgcolor="#FF105C"> <font color="#F4F4F4">Balance</font></td> 
+					<td bgcolor="#FF105C"> <font color="#F4F4F4">Balance <span class="glyphicon glyphicon-usd"></span></font></td> 
 				  </tr>  
 				</tbody>  
 			</table>
@@ -89,7 +108,7 @@
 			<table class="table">
 					<tbody>  
 					  <tr>  
-						<td bgcolor="#FF105C"> <font color="#F4F4F4">Latest</font></td> 
+						<td bgcolor="#FF105C"> <font color="#F4F4F4">Latest  <span class="glyphicon glyphicon-pushpin"></span></font></td> 
 					  </tr>  
 					</tbody>  
 			</table>
@@ -102,8 +121,52 @@
 		</br>
                 
 		<div class="row">
-             
-		<div class="col-md-4"><button type="button" class="btn btn-info btn-lg btn-block">${accounts.get(0).getAccountType()}****${accounts.get(0).getAccountNO()}</button> </div>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">${accounts.get(0).getAccountType()}****${accounts.get(0).getAccountNO()} Activity</h4>
+                      </div>
+                      <div class="modal-body">
+                          <table class="table table-striped">
+                              <thead>
+                                  <tr> 
+                                      <th>Date</th>
+                                      <th>     Description</th>
+                                      <th>Type</th>
+                                      <th>Status</th>
+                                      <th>Amount</th>
+                                      <th>Balance</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                   #{list items:activity, as:'account_activity' }
+                                  <tr>
+                                      <td> ${account_activity.getDate()}</td>
+                                      <td> ${account_activity.getDesc()}</td>
+                                      <td> ${account_activity.getType()}</td>
+                                      <td> ${account_activity.getStatus()}</td>
+                                      <td> ${account_activity.getAmount()}</td>
+                                      <td> ${account_activity.getBalance()}</td>
+                                  </tr>
+                                  #{/list}
+                              </tbody>
+                          </table>
+                      </div>
+                      <div class="modal-footer">
+                         <ul class="pager">
+                          <li class="previous"><a href="#">&larr; Older</a></li>
+                          <li class="next" ><a href="#">Newer &rarr;</a></li>
+                        </ul>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+		<div class="col-md-4"><button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#myModal_1">${accounts.get(0).getAccountType()}****${accounts.get(0).getAccountNO()}</button> </div>
                 
 		<div class="col-md-4"> 
                  
@@ -133,8 +196,24 @@
 		</br>
 		
 		<div class="row">
-		
-		<div class="col-md-4"><button type="button" class="btn btn-info btn-lg btn-block">${accounts.get(1).getAccountType()}****${accounts.get(1).getAccountNO()}</button> </div>
+		<div class="modal fade" id="myModal_2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                      </div>
+                      <div class="modal-body">
+                        ...
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+		<div class="col-md-4"><button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#myModal_2">${accounts.get(1).getAccountType()}****${accounts.get(1).getAccountNO()}</button> </div>
 		<div class="col-md-4">
 		<table class="table">
 			<tbody>  
@@ -163,9 +242,24 @@
 		</br>
 		
 		<div class="row">
-		
-          
-		<div class="col-md-4"><button type="button" class="btn btn-warning btn-lg btn-block">${accounts.get(2).getAccountType()}****${accounts.get(2).getAccountNO()}</button> </div>
+		<div class="modal fade" id="myModal_3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                      </div>
+                      <div class="modal-body">
+                        ...
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->          
+		<div class="col-md-4"><button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#myModal_3">${accounts.get(2).getAccountType()}****${accounts.get(2).getAccountNO()}</button> </div>
 		<div class="col-md-4">
 			<table class="table">
 			<tbody>  
@@ -247,6 +341,7 @@
         </div>
             
             
+            
         </div>    
     </div><!-- /.container -->
 
@@ -256,5 +351,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="@{'/public/javascripts/bootstrap.min.js'}"></script>
+    <script type="text/javascript"> $(function () { $("[data-toggle='tooltip']").tooltip(); }); </script>
   </body>
 </html>
