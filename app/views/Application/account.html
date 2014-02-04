@@ -48,7 +48,7 @@
 			<li><a href="#transfer">Transfer</a></li>
 			<li><a href="#transfer">Support</a></li>
           </ul>
-		  <form class="navbar-form navbar-right" role="form"> 
+            <form action="/" method="GET" class="navbar-form navbar-right" role="form"> 
 		 <button type="submit" class="btn btn-success">Sign out</button> 
 		   </form>
         </div><!--/.nav-collapse -->
@@ -134,16 +134,16 @@
                               <thead>
                                   <tr> 
                                       <th>Date</th>
-                                      <th>     Description</th>
+                                      <th>Description</th>
                                       <th>Type</th>
                                       <th>Status</th>
                                       <th>Amount</th>
                                       <th>Balance</th>
                                   </tr>
                               </thead>
-                              <tbody>
+                              <tbody >
                                    #{list items:activity, as:'account_activity' }
-                                  <tr>
+                                  <trid>
                                       <td> ${account_activity.getDate()}</td>
                                       <td> ${account_activity.getDesc()}</td>
                                       <td> ${account_activity.getType()}</td>
@@ -156,10 +156,7 @@
                           </table>
                       </div>
                       <div class="modal-footer">
-                         <ul class="pager">
-                          <li class="previous"><a href="#">&larr; Older</a></li>
-                          <li class="next" ><a href="#">Newer &rarr;</a></li>
-                        </ul>
+                         <ul class="pager">  </ul>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary">Save changes</button>
                       </div>
@@ -352,5 +349,51 @@
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="@{'/public/javascripts/bootstrap.min.js'}"></script>
     <script type="text/javascript"> $(function () { $("[data-toggle='tooltip']").tooltip(); }); </script>
+    <script
+            var listElement = $('#items.');
+            var perPage = 10; 
+            var numItems = listElement.children().size();
+            var numPages = Math.ceil(numItems/perPage);
+
+            $('.pager').data("curr",0);
+
+            var curr = 0;
+            while(numPages > curr){
+              $('<li><a href="#" class="page_link">'+(curr+1)+'</a></li>').appendTo('.pager');
+              curr++;
+            }
+
+            $('.pager .page_link:first').addClass('active');
+
+            listElement.children().css('display', 'none');
+            listElement.children().slice(0, perPage).css('display', 'block');
+
+            $('.pager li a').click(function(){
+              var clickedPage = $(this).html().valueOf() - 1;
+              goTo(clickedPage,perPage);
+            });
+
+            function previous(){
+              var goToPage = parseInt($('.pager').data("curr")) - 1;
+              if($('.active').prev('.page_link').length==true){
+                goTo(goToPage);
+              }
+            }
+
+            function next(){
+              goToPage = parseInt($('.pager').data("curr")) + 1;
+              if($('.active_page').next('.page_link').length==true){
+                goTo(goToPage);
+              }
+            }
+
+            function goTo(page){
+              var startAt = page * perPage,
+                endOn = startAt + perPage;
+
+              listElement.children().css('display','none').slice(startAt, endOn).css('display','block');
+              $('.pager').attr("curr",page);
+            }
+      </script>
   </body>
 </html>

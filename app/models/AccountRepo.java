@@ -20,7 +20,7 @@ public class AccountRepo {
     
               ArrayList accounts = new ArrayList();
               
-                 Connection conn=null;
+                Connection conn=null;
                 Statement stmt=null;
                 ResultSet rs=null;
                 try{
@@ -86,7 +86,7 @@ public class AccountRepo {
     
               ArrayList activity = new ArrayList();
               
-                 Connection conn=null;
+                Connection conn=null;
                 Statement stmt=null;
                 ResultSet rs=null;
                 try{
