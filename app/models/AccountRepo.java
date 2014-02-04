@@ -90,9 +90,9 @@ public class AccountRepo {
                 Statement stmt=null;
                 ResultSet rs=null;
                 try{
-                     String url = "jdbc:mysql://us-cdbr-east-04.cleardb.com:3306/heroku_98dc3582d5c864d?reconnect=true";
-                  String user= "b196540d943a8f";
-                  String pwd="fbd4ea41";
+                     String url = "jdbc:mysql://...";
+                  String user= "...";
+                  String pwd="...";
 
                     Class.forName("com.mysql.jdbc.Driver");
                     conn = DriverManager.getConnection(url,user,pwd);
