@@ -83,9 +83,9 @@ public class login {
                     //fpr postgres url
                    //  String url = "jdbc:postgresql://ec2-54-221-206-165.compute-1.amazonaws.com:5432/d7uvtdoem30m6m?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory"; 
                   
-                  String url = "jdbc:mysql://us-cdbr-east-04.cleardb.com:3306/heroku_98dc3582d5c864d?reconnect=true";
-                  String user= "b196540d943a8f";
-                  String pwd="fbd4ea41";
+                  String url = "jdbc:mysql://...";
+                  String user= "...";
+                  String pwd="...";
 
                     Class.forName("com.mysql.jdbc.Driver");
                     conn = DriverManager.getConnection(url,user,pwd);
